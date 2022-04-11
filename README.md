@@ -1,0 +1,1 @@
+This is some code that can be used to read sdf files produced by EPOCH PIC simulations. The code behaves similar to that found in the [SDF library](https://github.com/Warwick-Plasma/SDF_Matlab)  for MATLAB.
