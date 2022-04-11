@@ -8,10 +8,12 @@ This covers basically most grid variables such as:
 - electric and magnetic fields
 - mean kinetic energy of a a cell
 
-The code also could be optimised I am sure
+The code also could be optimised I am sure.
+Sometimes I find when plotting graphs using loops I need to call `gc.collect()` from the `gc` library at the end of each loop to free up memory. Also my experiences `collect()` does not work in `jupyter-notebook`. I haven't found out if the 'memory leak' is my fault is from the `ReadSDF` class or `matplotlib`. I have a feeling it is from the way I was plotting with `matplotlib`. This will be updated when I have time to test... 
 
 ### Example Usage
 ```
+from sdf_functions import ReadSDF
 # Initiate the class and print out contents of sdf file
 sdf = ReadSDF('0001.sdf')
 # Get the variable
@@ -20,6 +22,10 @@ grid, data = sdf.get_variable('ElectricField/Ey')
 sdf.close_file()
 ```
 
+The name of blocks in file are accessible here
+```
+sdf.get_file_contents()
+```
 The `get_variable` function gets the variable figures out what function needs to be called. What it returns will depend on the variable that is called. For something like Number_Density, `get_variable` will also return the associated grid with it as well unless told otherwise.
 
 The functions like `get_plain_variable` can also be called directly using
